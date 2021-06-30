@@ -1,0 +1,31 @@
+.navbar{
+    position:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    height: 70px;
+    box-shadow: 0px 2px 5px gray;
+    
+}
+
+.title{
+    width:20%;
+    color:#FF4838;
+    margin-left: 10px;
+    
+}
+
+.statistic {
+    position: top;
+    display: flex;
+    justify-content: space-evenly;
+    margin:auto;
+    width:70%;
+    font-size: 20px;
+
+}
+h2{
+    font-size: 20px;
+}
+h1{
+    font-size: 25px;
+}
