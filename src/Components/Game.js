@@ -7,7 +7,7 @@ import { Patterns } from './Helpers';
 function App() {
     const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
     const [player, setPlayer] = useState("");
-    const [result, setResult] = useState({ winner: "none", state: "none" });
+    const [result, setResult] = useState({ winner: "", state: "" });
     const [message, setMessage] = useState('');
     const player1 = localStorage.getItem('player1');
     const player2 = localStorage.getItem('player2');
@@ -33,7 +33,8 @@ function App() {
 
     useEffect(() => {
         if(result.state !== 'none') {
-            setResult(`Game Finished! Winning Player ${result.winner}`);
+            setResult(`Pobjedadaaaa! Pobijedio je : ${result.winner}`);
+            
         }
       
         
