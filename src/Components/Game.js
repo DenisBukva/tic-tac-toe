@@ -6,9 +6,10 @@ import { Patterns } from './Helpers';
 
 function App() {
     const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
-    const [player, setPlayer] = useState("");
-    const [result, setResult] = useState({ winner: "", state: "" });
+    const [player, setPlayer] = useState("O");
+    const [result, setResult] = useState({ winner: "none", state: "none" });
     const [message, setMessage] = useState('');
+    
     const player1 = localStorage.getItem('player1');
     const player2 = localStorage.getItem('player2');
     
@@ -17,6 +18,9 @@ function App() {
     useEffect(() => {
         checkWin();
         checkIfTie();
+        rss();
+        
+        
 
         if (player === "X") {
             setPlayer("O");
@@ -31,14 +35,24 @@ function App() {
         }
     }, [board]);
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     if(result.state !== 'none') {
+    //         setResult(`Pobjedadaaaa! Pobijedio je : ${result.winner}`);
+            
+    //     }
+    // },[result]);
+
+    const rss = () => {
         if(result.state !== 'none') {
             setResult(`Pobjedadaaaa! Pobijedio je : ${result.winner}`);
+            console.log(result);
             
         }
-      
-        
-    },[result]);
+    }
+
+ 
+
+    
 
     
 
@@ -68,13 +82,17 @@ function App() {
             });
 
             if (foundWinningPattern) {
-                setResult({winner:player === player1 ? player2 : player1, state:'won'});
-                console.log(result);
+                setResult({winner:player === player1 ? player2 : player1, state:'Won'});
+                
+                // console.log(result);
                 
                 
             }
         });
     };
+
+
+
 
     const checkIfTie = () => {
        
@@ -102,7 +120,7 @@ function App() {
         
         <div>
             <h2>Next player: {message}</h2>
-            <h2>Won {result.winner}</h2>
+            
             
             
             
