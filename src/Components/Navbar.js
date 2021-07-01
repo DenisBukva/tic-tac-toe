@@ -3,7 +3,7 @@ import '../Style/Navbar.css';
 
 
 
-function Navbar() {
+function Navbar({player1Count, player2Count, tieCount}) {
 
     const player1 = localStorage.getItem('player1');
     const player2 = localStorage.getItem('player2');
@@ -15,9 +15,9 @@ function Navbar() {
                 <h1>Tic Tac Toe</h1>
             </div>
             <div className='statistic'>
-                <h2>{player1}:</h2>
-                <h2>{player2}:</h2>
-                <h2>Ties: </h2>
+                <h2>{player1}: {player2Count}</h2>
+                <h2>{player2}: {player1Count}</h2>
+                <h2>Ties: {tieCount} </h2>
             </div>
         </div>
     

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
 import { BrowserRouter } from 'react-router-dom';
-import Navbar from './Components/Navbar';
 import Game from './Components/Game';
 import Login from './Components/Login';
 
@@ -17,7 +15,7 @@ function App() {
 
     return (
         <BrowserRouter>
-            <Navbar />
+            
             {showLogin && <Login hideLogin={hideLogin} />}
             <Game />
             {/* <Endgame /> */}
