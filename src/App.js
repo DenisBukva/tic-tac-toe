@@ -5,12 +5,15 @@ import Login from './Components/Login';
 
 
 
+
 function App() {
     const [showLogin, setShowLogin] = useState(true);
+    
     const hideLogin = () => {
-        setShowLogin(showLogin => !showLogin)
+        setShowLogin(showLogin => !showLogin);
     }
 
+   
 
 
     return (
@@ -18,7 +21,8 @@ function App() {
             
             {showLogin && <Login hideLogin={hideLogin} />}
             <Game />
-            {/* <Endgame /> */}
+           
+            
 
 
 

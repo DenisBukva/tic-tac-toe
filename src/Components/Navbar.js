@@ -15,9 +15,9 @@ function Navbar({player1Count, player2Count, tieCount}) {
                 <h1>Tic Tac Toe</h1>
             </div>
             <div className='statistic'>
-                <h2>{player1}: {player2Count}</h2>
-                <h2>{player2}: {player1Count}</h2>
-                <h2>Ties: {tieCount} </h2>
+                <h2 className='player1'>{player1}: {player2Count}</h2>
+                <h2 className='player2'>{player2}: {player1Count}</h2>
+                <h2 className='tie'>Ties: {tieCount} </h2>
             </div>
         </div>
     

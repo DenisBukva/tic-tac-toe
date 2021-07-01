@@ -29,3 +29,14 @@ h2{
 h1{
     font-size: 25px;
 }
+.player1{
+    color:#FB8122;
+}
+
+.player2{
+    color:#438945;
+}
+
+.tie{
+    color:#F2D349;
+}

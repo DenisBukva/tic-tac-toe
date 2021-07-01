@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import { useState, useEffect } from "react";
 import Square from './Square';
 import { Patterns } from './Helpers';
+import Endgame from './Endgame';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     const [player1Count, setPlayer1Count] = useState(0);
     const [player2Count, setPlayer2Count] = useState(0);
     const [tieCount, setTieCount] = useState(0);
+    const [showEndGame, setShowEndGame] = useState(false);
 
     const player1 = localStorage.getItem('player1');
     const player2 = localStorage.getItem('player2');
@@ -46,13 +48,16 @@ function App() {
        
         if (result.state !== 'none' && player === 'X') {
             setWinMsg(`Winner is ${player2}`);
+            setShowEndGame(true);
                 
         } else if (result.state !== 'none' && player === 'O') {
             setWinMsg(`Winner is ${player1}`);
+            setShowEndGame(true);
             
         } if (result.state === 'Tie') {
             setMessage('Game is finish!')
             setWinMsg('DRAW');
+            setShowEndGame(true);
             
         } // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
@@ -127,17 +132,16 @@ function App() {
     const restartGame = () => {
         setBoard(["", "", "", "", "", "", "", "", ""]);
         setPlayer("O");
+        setShowEndGame(false);
     };
 
     return (
 
         <div>
             <Navbar player1Count={player1Count} player2Count={player2Count} tieCount={tieCount} />
-            <h2>Nex player: {message}</h2>
-            <h2>Win: {winMsg}</h2>
-            {/* <h2>Player1: {player1Count}</h2>
-            <h2>Player2: {player2Count}</h2>
-            <h2>Tie: {tieCount}</h2> */}
+            <h2 className='nextplayer'>Nex player: {message}</h2>
+            <h2 className='win'>Win: {winMsg}</h2>
+          {showEndGame && <Endgame winMsg={winMsg} restartGame={restartGame} />}
         
 
 
