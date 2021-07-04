@@ -21,14 +21,9 @@ function App() {
     const player2 = localStorage.getItem('player2');
 
 
-
     useEffect(() => {
         checkWin();
         checkIfTie();
-
-
-
-
         if (player === "X") {
             setPlayer("O");
             setMessage(`${player2}`);
@@ -45,30 +40,22 @@ function App() {
 
 
     useEffect(() => {
-       
+
         if (result.state !== 'none' && player === 'X') {
-            setWinMsg(`Winner is ${player2}`);
+            setWinMsg(`The ${player2} wins!`);
             setShowEndGame(true);
-                
+
         } else if (result.state !== 'none' && player === 'O') {
-            setWinMsg(`Winner is ${player1}`);
+            setWinMsg(`The ${player1} wins!`);
             setShowEndGame(true);
-            
+
         } if (result.state === 'Tie') {
             setMessage('Game is finish!')
             setWinMsg('DRAW');
             setShowEndGame(true);
-            
+
         } // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [result])
-
-
-
-
-
-
-
-
 
     const chooseSquare = (square) => {
         setBoard(
@@ -83,7 +70,6 @@ function App() {
     };
 
     const checkWin = () => {
-        
         Patterns.forEach((currPattern) => {
             const firstPlayer = board[currPattern[0]];
             if (firstPlayer === "") return;
@@ -97,19 +83,16 @@ function App() {
             if (foundWinningPattern) {
                 setResult({ winner: player === player1 ? player2 : player1, state: 'Won' });
                 setPlayer('X');
-                 if (player === 'X') {
+                if (player === 'X') {
                     setPlayer2Count(prevCount => prevCount + 1);
-                } else if(player === 'O'){
+                } else if (player === 'O') {
                     setPlayer1Count(prevCount => prevCount + 1);
                 }
-                } 
-               
-               
+            }
+
+
         });
     };
-
-
-
 
     const checkIfTie = () => {
 
@@ -133,6 +116,12 @@ function App() {
         setBoard(["", "", "", "", "", "", "", "", ""]);
         setPlayer("O");
         setShowEndGame(false);
+        setWinMsg('');
+    };
+
+    const restartGame0 = () => {
+        window.location.reload();
+        localStorage.clear();
     };
 
     return (
@@ -141,12 +130,7 @@ function App() {
             <Navbar player1Count={player1Count} player2Count={player2Count} tieCount={tieCount} />
             <h2 className='nextplayer'>Nex player: {message}</h2>
             <h2 className='win'>Win: {winMsg}</h2>
-          {showEndGame && <Endgame winMsg={winMsg} restartGame={restartGame} />}
-        
-
-
-
-
+            {showEndGame && <Endgame winMsg={winMsg} restartGame={restartGame} player1={player1} player2={player2} restartGame0={restartGame0} />}
 
 
             <div className="App">

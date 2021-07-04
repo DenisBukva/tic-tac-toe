@@ -5,12 +5,14 @@
     position: fixed;
     background-color: rgb(0, 0, 0, 0.8);
     width: 50%;
-    height: 80%;
+    height: 100%;
     margin-top: 0;
     border:1px solid red;
     border-radius: 30px;
     margin-left: 200px;
+    
 }
+
 .msg{
     
   width:300px;
@@ -18,7 +20,7 @@
   height: 400px;
   text-align: center;
   color:white;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-left: 50px;
   align-items: center;
 
@@ -27,7 +29,7 @@
 
 #btn-end{
     width: 100px !important;
-    margin-top: 25px !important;
+    
     border-radius: 15px !important;
 }
 .screen{
@@ -38,4 +40,14 @@
     
     color:white;
     
+}
+.history{
+    font-size: 10px;
+    
+}
+
+#btn-endd{
+    width: 100px !important;
+    margin-right: 5px !important;
+    border-radius: 15px !important;
 }

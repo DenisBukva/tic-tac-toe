@@ -15,6 +15,7 @@ const [player2, setPlayer2] = useState('');
 const saveLocal = () =>{
     localStorage.setItem('player1', player1);
     localStorage.setItem('player2', player2);
+    
 
 }
 
